@@ -56,7 +56,7 @@ const Vote: React.FC<VoteProps> = (props) => {
                 <h1>Like or dislike</h1>
                 <Stack>
                     <Button data-testid="like" variant={clickedLike ? "success":"secondary"} onClick={handleLikeVote} disabled={hasVoted}><FontAwesomeIcon icon={faThumbsUp} /></Button>
-                    <div>{totalLikes}</div>
+                    <div data-testid="totalLikes">{totalLikes}</div>
                     <Button data-testid="dislike" variant={clickedDislike ? "danger":"secondary"} onClick={handleDislikeVote} disabled={hasVoted}><FontAwesomeIcon icon={faThumbsDown} /></Button>
                 </Stack>
             </Row>
