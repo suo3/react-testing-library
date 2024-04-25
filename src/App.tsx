@@ -1,15 +1,20 @@
 import React from 'react';
 import Vote from './vote'
 import './App.css'
+import { Container} from 'react-bootstrap';
+import EmployeeEmail from './employeeEmail';
 
 function App() {
 
 
   return (
     
-    <div className="App">
-      <Vote totalGlobalLikes={0}/>
-    </div>
+    <Container className="App">
+      <EmployeeEmail />
+      <hr />
+     <Vote totalGlobalLikes={0} />
+    
+    </Container>
   
   )
 }
