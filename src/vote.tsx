@@ -1,7 +1,8 @@
 import React, { useReducer } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import VoteButton from "./voteButton";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { Button, Col, Stack, Row } from "react-bootstrap";
+import { Col, Stack, Row } from "react-bootstrap";
 
 interface VoteProps {
   totalGlobalLikes: number;
@@ -52,24 +53,24 @@ const Vote: React.FC<VoteProps> = (props) => {
 
   return (
     <Row>
-      <Col md={6}>
+      <Col md={6} className='card' data-testid='vote'>
         <h4>Like or dislike</h4>
         <Stack>
-          <Button
-            data-testid='like'
+          <VoteButton
+            testid='like'
             variant={clickedLike ? "success" : "secondary"}
             onClick={handleLikeVote}
             disabled={hasVoted}>
             <FontAwesomeIcon icon={faThumbsUp} />
-          </Button>
+          </VoteButton>
           <div data-testid='totalLikes'>{totalLikes}</div>
-          <Button
-            data-testid='dislike'
+          <VoteButton
+            testid='dislike'
             variant={clickedDislike ? "danger" : "secondary"}
             onClick={handleDislikeVote}
             disabled={hasVoted}>
             <FontAwesomeIcon icon={faThumbsDown} />
-          </Button>
+          </VoteButton>
         </Stack>
       </Col>
     </Row>
