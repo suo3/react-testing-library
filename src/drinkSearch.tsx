@@ -39,7 +39,7 @@ const DrinkSearch = () => {
       return (
         <Card
           key={drink.idDrink}
-          className='card m-2'
+          className='card m-2 col-md-6'
           style={{ width: "20rem" }}>
           <img
             src={drink.strDrinkThumb}
@@ -65,22 +65,28 @@ const DrinkSearch = () => {
   };
 
   return (
-    <Col md={6}>
-      <Form className='form-group m-auto w-50 pt-2' onSubmit={handleDrinkQuery}>
-        <Form.Control
-          className='form-control'
-          placeholder='search for a drink...'
-          type='search'
-          value={drinkQuery}
-          onChange={(event) => setDrinkQuery(event.target.value)}
-        />
-        <Button className='btn btn-primary mt-2 btn-block' type='submit'>
-          Search
-        </Button>
-      </Form>
-      {drinks && <div className='d-flex flex-wrap'>{drinkResults()}</div>}
-      {!drinks && <h5 className='text-center mt-5'>🍹 No drinks found 🍹</h5>}
-      {error && <h5 className='text-center mt-5'>🛑 Service unavailable 🛑</h5>}
+    <Col md={12}>
+      <Card>
+        <Form
+          className='form-group m-auto w-100 pt-2 d-flex'
+          onSubmit={handleDrinkQuery}>
+          <Form.Control
+            className='form-control'
+            placeholder='search for a drink...'
+            type='search'
+            value={drinkQuery}
+            onChange={(event) => setDrinkQuery(event.target.value)}
+          />
+          <Button className='btn btn-primary mt-0 btn-block' type='submit'>
+            Search
+          </Button>
+        </Form>
+        {drinks && <div className='d-flex flex-wrap row'>{drinkResults()}</div>}
+        {!drinks && <h5 className='text-center mt-5'>🍹 No drinks found 🍹</h5>}
+        {error && (
+          <h5 className='text-center mt-5'>🛑 Service unavailable 🛑</h5>
+        )}
+      </Card>
     </Col>
   );
 };
