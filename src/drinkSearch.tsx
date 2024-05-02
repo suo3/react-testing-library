@@ -73,7 +73,7 @@ const DrinkSearch = () => {
           onSubmit={handleDrinkQuery}>
           <Form.Control
             className='form-control'
-            placeholder='search for a drink...'
+            placeholder='search for a drink....'
             type='search'
             value={drinkQuery}
             onChange={(event) => setDrinkQuery(event.target.value)}
