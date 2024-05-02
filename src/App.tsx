@@ -8,12 +8,12 @@ import DrinkSearch from "./drinkSearch";
 function App() {
   return (
     <Container className='App'>
+      <Row className='mb-4'>
+        <DrinkSearch />
+      </Row>
       <Row>
         <EmployeeEmail />
         <Vote totalGlobalLikes={0} />
-      </Row>
-      <Row>
-        <DrinkSearch />
       </Row>
     </Container>
   );

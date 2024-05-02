@@ -67,8 +67,9 @@ const DrinkSearch = () => {
   return (
     <Col md={12}>
       <Card>
+        <h3>Search Drinks</h3>
         <Form
-          className='form-group m-auto w-100 pt-2 d-flex'
+          className='form-group m-auto w-100 pt-2'
           onSubmit={handleDrinkQuery}>
           <Form.Control
             className='form-control'
@@ -77,7 +78,9 @@ const DrinkSearch = () => {
             value={drinkQuery}
             onChange={(event) => setDrinkQuery(event.target.value)}
           />
-          <Button className='btn btn-primary mt-0 btn-block' type='submit'>
+          <Button
+            className='btn btn-primary mt-1 w-100 btn-block'
+            type='submit'>
             Search
           </Button>
         </Form>
