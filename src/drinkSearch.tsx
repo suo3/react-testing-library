@@ -2,7 +2,18 @@ import * as React from "react";
 import fetchDrinks from "./api/fetchDrinks";
 import { Button, Card, Col, Form } from "react-bootstrap";
 
-const DrinkSearch = () => {
+interface DrinkSearch {
+  dinks: [];
+  error: boolean;
+}
+
+interface Drinks {
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
+  strInstructions: string;
+}
+const DrinkSearch: React.FC<DrinkSearch> = () => {
   const [drinks, setDrinks] = React.useState([]);
   const [drinkQuery, setDrinkQuery] = React.useState("");
   const [error, setError] = React.useState(false);
@@ -35,7 +46,7 @@ const DrinkSearch = () => {
       return ingredients;
     };
 
-    return drinks.map((drink) => {
+    return drinks.map((drink: Drinks) => {
       return (
         <Card
           key={drink.idDrink}
