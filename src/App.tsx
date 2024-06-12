@@ -1,6 +1,7 @@
 import React from "react";
 import Vote from "./vote";
 import "./App.css";
+import Register from "./register";
 import { Container, Row } from "react-bootstrap";
 import EmployeeEmail from "./employeeEmail";
 import DrinkSearch from "./drinkSearch";
@@ -14,6 +15,7 @@ function App() {
       <Row>
         <EmployeeEmail />
         <Vote totalGlobalLikes={0} />
+        <Register handleRegister={(values) => console.log(values)} />
       </Row>
     </Container>
   );

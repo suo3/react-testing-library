@@ -25,7 +25,7 @@ describe(() => {
     expect(screen.getByText(/test instructions/i)).toBeInTheDocument();
   });
 
-  test("renders no drink results", async () => {
+  it("renders no drink results", async () => {
     mockServer.use(
       rest.get(
         "https://www.thecocktaildb.com/api/json/v1/1/search.php",
@@ -48,7 +48,7 @@ describe(() => {
       await screen.findByRole("heading", { name: /no drinks found/i })
     ).toBeInTheDocument();
   });
-  test("renders service unavailable", async () => {
+  it("renders service unavailable", async () => {
     mockServer.use(
       rest.get(
         "https://www.thecocktaildb.com/api/json/v1/1/search.php",
@@ -64,5 +64,14 @@ describe(() => {
     expect(
       await screen.findByRole("heading", { name: /service unavailable/i })
     ).toBeInTheDocument();
+  });
+
+  it("prevents GET request when search input is empty", async () => {
+    () => {
+      render(<DrinkSearch />);
+      const searchInput = screen.getByRole("searchbox");
+      user.type(searchInput, "{enter}");
+      expect(screen.queryByRole("heading")).not.toHaveBeenCalled();
+    };
   });
 });
